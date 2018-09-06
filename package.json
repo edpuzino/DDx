@@ -1,0 +1,29 @@
+{
+  "name": "DDx",
+  "version": "1.0.0",
+  "description": "Differential Diagnosis app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edpuzino/DDx.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edpuzino/DDx/issues"
+  },
+  "homepage": "https://github.com/edpuzino/DDx#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "npm": "^6.4.1",
+    "pg": "^7.4.3",
+    "superagent": "^3.8.3"
+  }
+}
