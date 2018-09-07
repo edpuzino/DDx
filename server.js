@@ -18,15 +18,15 @@ client.on('error', err => console.error(err));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./public'));
 
-//Set the view engine
+// Set the view engine
 app.set('view engine', 'ejs');
 
-//gets and posts
+// Gets and posts
 app.get('*', getError);
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
 
-//
+// Helper functions
 function getError(request, response) {
     response.render('pages/error');
   }
