@@ -22,11 +22,15 @@ app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 
 // Gets and posts
+app.get('/', getIndex);
 app.get('*', getError);
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
 
 // Helper functions
+function getIndex(request, response){
+  response.render('index');
+}
 function getError(request, response) {
-    response.render('pages/error');
-  }
+  response.render('pages/error');
+}
