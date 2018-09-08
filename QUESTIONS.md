@@ -53,6 +53,9 @@ The differential diagnosis of an acute hemarthrosis of the knee due to ACL in ad
 Final confirmation should be done via imaging. Please send the patient to get this done asap. Make sure the patient knows to schedule a follow up with you in about a week to go over their imaging results. Until that time, have them follow RICE procedures (Rest Ice Compression Elevation)
 	
 
+*The keyword for for google maps is "medical imaging" 
+
+
 
 
 Tennis Elbow Questions
@@ -119,6 +122,10 @@ Mill's Test is designed to maximally stretch, and therefore provoke the extensor
 	
 10. All signs point to the patient experiencing lateral epicondylitis, or "tennis elbow" as it is colloquially known. Advise the patient to follow RICE procedures, and schedule further appointments with a physical therapist. If pain is debilitating for the patient, advise them on possible steroid injections and/or bracing. 
 
+
+*The keyword for for google maps is "physical therapy" 
+
+
 Ankle Inversion Spring
 
 1. You've indicated an issue w/ the patients ankle. What was the mechanism of injury?
@@ -167,3 +174,7 @@ Be advised that misdiagnosis is very common in this type of injury. Differential
     Unable to Perform
 
 8. A positive talar tilt test, in addition to the previously gathered data, seems to confirm our diagnosis of an inversion ankle sprain with involvement of the anterior talofibular ligaments. In some cases, imaging may be required to confirm diagnosis. Advise patient on RICE procedures and send them for a physical therapy consultation. 
+
+
+
+*The keyword for for google maps is "physical therapy" 
