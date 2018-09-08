@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><%- include('./partials/head') %></head>
+  <%- include('../partials/head') %>
   <body>
-    <header><%- include('./partials/header') %></header>
+    <header><%- include('../partials/header') %></header>
     <main>
-      <title>Diagnosis</title>
-
-
-
-
-
+    <h1>Diagnosis</h1>
+    <iframe id="embedded-human" frameBorder="0" width="100%" height="450px" allowFullScreen="true" src="https://human.biodigital.com/widget/?be=2dqG&ui-info=true&ui-zoom=true&ui-share=false&dk=a12bea4f3740380ca22d4e08ee0d27a8f5b22f48"></iframe>
+    <p>Information on the diagnosis</p>
     </main>      
-    <footer><%- include('./partials/footer') %></footer>  
+    <%- include('../partials/footer') %> 
   </body>
 </html>
