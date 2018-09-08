@@ -20,6 +20,9 @@ ACL Questions
 3. Plant foot and twist injuries often involve injury to the ligament or meniscus of the knee. Let's investigate further with that in mind. Can the patient walk unassisted?
 	Yes
 	No *
+
+Be advised, the differential diagnosis of this type of injury includes knee dislocations, meniscal injuries, collateral ligaments injury, and posterolateral corner injuries to the knee. Other problems that have to be considered are: patellar dislocation or fracture. Femoral, tibial or fibular fracture.
+The differential diagnosis of an acute hemarthrosis of the knee due to ACL in addition to a major ligamentous tear would include meniscal tear or patellar dislocation or osteochondral fracture.
 	
 4. So the patient can't walk unassisted and our mechanism of injury was plant/twist. Let's test the patient's knee range of motion (ROM). Normal knee flexion is ~142deg. Normal knee extension is ~1.6deg.
 	ROM is normal
@@ -73,6 +76,8 @@ Tennis Elbow Questions
 3. Explosive/Dynamic movement involving elbow extension during sports often involves the ligaments or muscles. Let's investigate further with that in mind. Is the patient bracing their elbow, trying to hold it in place?
 	Yes
 	No *
+
+Be advised, the differential diagnosis of this type of injury includes Radial Tunnel Syndrome, Posterior Interosseus Syndrome, Elbow Osteoarthritis, Fractures, Cervical Radiculopathy, and others. Care should be taken to ensure the following questions are investigated in depth.
 	
 4. Can the patient do elbow flexion/extension unassisted?
 	Yes *
@@ -112,6 +117,53 @@ Mill's Test is designed to maximally stretch, and therefore provoke the extensor
 	Cozen's Test Negative
 	Unable to Perform
 	
-9. All signs point to the patient experiencing lateral epicondylitis, or "tennis elbow" as it is colloquially known. Advise the patient to follow RICE procedures, and schedule further appointments with a physical therapist. If pain is debilitating for the patient, advise them on possible steroid injections and/or bracing. 
+10. All signs point to the patient experiencing lateral epicondylitis, or "tennis elbow" as it is colloquially known. Advise the patient to follow RICE procedures, and schedule further appointments with a physical therapist. If pain is debilitating for the patient, advise them on possible steroid injections and/or bracing. 
 
+Ankle Inversion Spring
 
+1. You've indicated an issue w/ the patients ankle. What was the mechanism of injury?
+	Sports *
+	Fall from height
+	Auto accident
+	Impact Injury
+	Unknown
+	
+2. You've indicated that the mechanism of injury was sports related. How did they injury it during sports?
+	Body Contact 
+	Equipment Contact
+	Plant Foot and Twist 
+	Explosive/Dynamic Movement Involving Ankle Plantarflexion/Dorsiflexion (eg: Jump)
+	Lateral Movement Involving Ankle Inversion/Eversion *
+	Fall
+	Unknown
+
+3. Can the patient walk unassisted?
+    Yes
+    No *
+    Unknown
+
+4. Can the patient put any weight on the ankle at all?
+    Yes *
+    No
+    Unable to Perform
+
+Be advised that misdiagnosis is very common in this type of injury. Differential diagnosis that you should also be aware of are Impingement, Tarsal Tunnel Syndrome, Sinus Tarsi Syndrome, Cartilage or psteochondral injuries, Peroneal Tendinopathy or subluxation, and Posterior Tibial Tendon Dysfunction. Further examination may be required if no imporvement is made after the first couple of days following initial examination.
+
+5. An ankle injury involving lateral movement in which they are unable to stand unassisted, but are able to bare some weight on it is unlikely to be broken. However, it could involve a strain or sprain to the musculature or ligaments. Testing the patient's range of motion will help us figure that out. Test the patient's ankle inversion and eversion ROM, noting any pain elicited. 
+    Normal Inversion/Eversion ROM
+    Abnormal Inversion/Eversion ROM *
+    Unable to Perform
+
+6. Subdermal hematoma present?
+    Lateral Foot *
+    Medial Foot
+    Anterior Foot
+    Posterior Foot
+    None
+
+7. Abnormal inversion/eversion ROM, in addition to subdermal hematoma presenting in the lateral foot, sounds like classic signs of an inversion sprain. We should investigate the patient for injury to the anterior/posterior talofibular ligament and calcaneofibular ligament to be sure. Perform the Talar Tilt Test. A positive test will elicit pain during test or if you feel a gap in the joint as compared to the non-involved limb. 
+    Talar Tilt Test Positive *
+    Talar Tilt Test Negative
+    Unable to Perform
+
+8. A positive talar tilt test, in addition to the previously gathered data, seems to confirm our diagnosis of an inversion ankle sprain with involvement of the anterior talofibular ligaments. In some cases, imaging may be required to confirm diagnosis. Advise patient on RICE procedures and send them for a physical therapy consultation. 
