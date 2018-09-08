@@ -34,7 +34,7 @@ function getIndex(request, response){
 }
 
 function getDiagnosis(request, response) {
-  response.render('pages/diagnosis');
+  response.render('pages/diagnosis', {token : process.env.API_KEY});
 }
 
 function getError(request, response) {
