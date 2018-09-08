@@ -23,6 +23,7 @@ app.set('view engine', 'ejs');
 
 // Gets and posts
 app.get('/', getIndex);
+app.get('/diagnosis', getDiagnosis);
 app.get('*', getError);
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
@@ -31,6 +32,11 @@ app.listen(PORT, () => console.log('Listening on PORT', PORT));
 function getIndex(request, response){
   response.render('index');
 }
+
+function getDiagnosis(request, response) {
+  response.render('pages/diagnosis');
+}
+
 function getError(request, response) {
   response.render('pages/error');
 }
