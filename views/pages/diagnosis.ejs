@@ -70,7 +70,7 @@
       });
 
       google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent(place.name);
+        infoWindow.setContent('<div><span class="place-name">' + place.name + '</span><br>' + place.formatted_address + '</div>');
         infoWindow.open(map, this);
       });
     }

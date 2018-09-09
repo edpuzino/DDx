@@ -36,3 +36,9 @@
 #error-body {
     height: 100%;
 }
+
+.place-name {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 1.1em;
+}
