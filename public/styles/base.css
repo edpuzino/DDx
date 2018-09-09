@@ -1,9 +1,15 @@
 * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #484848;
   }
   
   html, body {
+      width: 100%;
       height: 100%;
+    }
+
+  main {
+      width: 100%;
     }
   
   body {
@@ -15,4 +21,9 @@
     background-color: #ffffff;
     text-align: center; 
     vertical-align: middle;
+  }
+
+  h3 {
+    font-size: 1.4em;
+    margin-top: 1em;
   }
