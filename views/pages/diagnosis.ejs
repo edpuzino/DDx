@@ -9,14 +9,18 @@
     <p class="diagnosis-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <div id="map"></div>
     </main>
+    
     <script>
-    let map, infoWindow;
+    let map, infoWindow, service;
       function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 47.6062, lng: -122.335167},
-      zoom: 12
+      zoom: 13
       });
-      infoWindow = new google.maps.InfoWindow;
+      // infoWindow = new google.maps.InfoWindow;
+
+      infoWindow = new google.maps.InfoWindow();
+
 
       // Try HTML5 geolocation.
       if (navigator.geolocation) {
@@ -27,9 +31,21 @@
         };
 
         infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
+        infoWindow.setContent('We located you!');
         infoWindow.open(map);
         map.setCenter(pos);
+
+        var currentLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+    
+        var request = {
+          location: currentLocation,
+          radius: '500',
+          query: 'physical therapy',
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
@@ -37,18 +53,35 @@
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
       }
-      }
+  }
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        var place = results[i];
+        createMarker(results[i]);
+      }
+    }
+  }
+
+    function createMarker(place) {
+      new google.maps.Marker({
+        position: place.geometry.location,
+        map: map
+      });
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
       infoWindow.setContent(browserHasGeolocation ?
                           'Error: The Geolocation service failed.' :
                           'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
-      }
-</script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= token %>&callback=initMap" async defer></script>
-    
+    }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= token %>&callback=initMap&libraries=places" async defer></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= token %>&libraries=places"></script> -->
     <%- include('../partials/footer') %> 
   </body>
 </html>
