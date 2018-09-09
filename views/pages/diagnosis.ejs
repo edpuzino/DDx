@@ -4,10 +4,88 @@
   <body>
     <header><%- include('../partials/header') %></header>
     <main>
-    <h1>Diagnosis</h1>
+    <h1 class="diagnosis-title">Diagnosis</h1>
     <iframe id="embedded-human" frameBorder="0" width="100%" height="450px" allowFullScreen="true" src="https://human.biodigital.com/widget/?be=2dqG&ui-info=true&ui-zoom=true&ui-share=false&dk=a12bea4f3740380ca22d4e08ee0d27a8f5b22f48"></iframe>
-    <p>Information on the diagnosis</p>
-    </main>      
+    <p class="diagnosis-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div id="map"></div>
+    </main>
+    
+    <script>
+    let map, infoWindow, service;
+      function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 47.6062, lng: -122.335167},
+      zoom: 13
+      });
+      // infoWindow = new google.maps.InfoWindow;
+      infoWindow = new google.maps.InfoWindow();
+
+
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('We located you!');
+        infoWindow.open(map);
+        map.setCenter(pos);
+
+        var currentLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+    
+        var request = {
+          location: currentLocation,
+          radius: '500',
+          query: 'physical therapy',
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+      } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+      }
+  }
+
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        var place = results[i];
+        createMarker(results[i]);
+      }
+    }
+  }
+
+    function createMarker(place) {
+      var marker = new google.maps.Marker({
+        position: place.geometry.location,
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent('<div><span class="place-name">' + place.name + '</span><br>' + place.formatted_address + '</div>');
+        infoWindow.open(map, this);
+      });
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                          'Error: The Geolocation service failed.' :
+                          'Error: Your browser doesn\'t support geolocation.');
+      infoWindow.open(map);
+    }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= token %>&callback=initMap&libraries=places" async defer></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= token %>&libraries=places"></script> -->
     <%- include('../partials/footer') %> 
   </body>
 </html>
