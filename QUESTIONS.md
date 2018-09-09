@@ -10,7 +10,7 @@ ACL Questions
 2. You've indicated that the mechanism of injury was sports related. How did they injury it during sports?
 	Body Contact 
 	Equipment Contact
-	Plant Foot and Twist *
+	Plant Foot and Twist (eg: soccer kick) *
 	Explosive/Dynamic Movement Involving Knee Extension (eg: Jump)
 	Explosive/Dynamic Movement Involving Knee Flexion (eg: Squat)
 	Lateral Movement
@@ -50,7 +50,7 @@ The differential diagnosis of an acute hemarthrosis of the knee due to ACL in ad
 
 7. A positive Lachman's test has a fairly high indication of an ACL tear. As our MOI was a plant and twist injury, the patient is unable to walk unassisted, knee flexion is less than normal, a sound was heard (though inconclusive), and we got a positive Lachman's test, most signs point to an ACL tear. 
 
-Final confirmation should be done via imaging. Please send the patient to get this done asap. Make sure the patient knows to schedule a follow up with you in about a week to go over their imaging results. Until that time, have them follow RICE procedures (Rest Ice Compression Elevation)
+Final confirmation should be done via imaging. Please send the patient to get this done asap, as an ACL tear typically requires surgical intervention. Make sure the patient knows to schedule a follow up with you in about a week to go over their imaging results. Until that time, have them follow RICE procedures (Rest Ice Compression Elevation)
 	
 
 *The keyword for for google maps is "medical imaging" 
