@@ -18,7 +18,6 @@
       zoom: 13
       });
       // infoWindow = new google.maps.InfoWindow;
-
       infoWindow = new google.maps.InfoWindow();
 
 
@@ -65,9 +64,14 @@
   }
 
     function createMarker(place) {
-      new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent(place.name);
+        infoWindow.open(map, this);
       });
     }
 
