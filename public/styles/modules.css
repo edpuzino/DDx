@@ -44,3 +44,19 @@
     font-weight: 700;
     margin-bottom: 1.1em;
 }
+
+@media only screen and (min-width: 640px) {
+    .icon-menu {
+      display: none;
+    }
+  
+    nav ul {
+      display: block;
+      float: right;
+    }
+  
+    nav ul li {
+      display: inline;
+      border-bottom: none;
+    }
+}
