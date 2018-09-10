@@ -4,12 +4,12 @@
   <body>
     <header><%- include('../partials/header') %></header>
     <main>
-    <h1 class="diagnosis-title"><%= diagnosis.name %></h1>
-    <iframe id="embedded-human" frameBorder="0" width="100%" height="450px" allowFullScreen="true" src="<%= diagnosis.image_url %>"></iframe>
-    <p class="diagnosis-description"><%= diagnosis.description %></p>
-    <h4 class="recommended-treatment">Recommended Treatment</h4>
-    <h6 class="treatment-details"><%= diagnosis.treatment %></h6>
-    <div id="map"></div>
+      <h1 class="diagnosis-title"><%= diagnosis.name %></h1>
+      <iframe id="embedded-human" frameBorder="0" width="100%" height="450px" allowFullScreen="true" src="<%= diagnosis.image_url %>"></iframe>
+      <p class="diagnosis-description"><%= diagnosis.description %></p>
+      <h4 class="recommended-treatment">Recommended Treatment</h4>
+      <h6 class="treatment-details"><%= diagnosis.treatment %></h6>
+      <div id="map"></div>
     </main>
     
     <script>
