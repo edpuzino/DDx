@@ -34,7 +34,7 @@ function getIndex(request, response){
 }
 
 function getDiagnosis(request, response) {
-  let SQL =`SELECT id, name, image_url, description, keyword
+  let SQL =`SELECT id, name, image_url, description, keyword, treatment
   FROM diagnosis
   WHERE id = $1;`
   let values = [1];

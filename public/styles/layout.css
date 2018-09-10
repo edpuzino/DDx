@@ -24,7 +24,6 @@ header h1 {
 
 nav ul {
     display: none;
-    padding: 0;
     list-style: none;
     clear: both;
 }
@@ -34,7 +33,7 @@ nav li {
     font-size: 1em;
     text-transform: uppercase;
     letter-spacing: .1em;
-    padding: 1em .9em;
+    padding: .9em .5em;
     border-bottom: .5px solid #ffffff;
 }
 

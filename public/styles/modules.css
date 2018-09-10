@@ -6,7 +6,7 @@
 
 .diagnosis-title {
     font-family: 'Anton', sans-serif;
-    font-size: 2.2em;
+    font-size: 2.6em;
     margin-bottom: 1em;
     letter-spacing: .03em;
 }
@@ -43,6 +43,18 @@
     font-size: 1.1em;
     font-weight: 700;
     margin-bottom: 1.1em;
+}
+
+.recommended-treatment {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8em;
+    margin-top: 2em;
+    margin-bottom: .6em;
+    letter-spacing: .03em;
+}
+
+.treatment-details {
+    font-size: 1.2em;
 }
 
 @media only screen and (min-width: 640px) {
