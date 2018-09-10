@@ -23,10 +23,11 @@ app.set('view engine', 'ejs');
 
 // Gets and posts
 app.get('/', getIndex);
+app.get('/questions', getQuestions);
+app.get('/diagnosis', getDiagnosis);
 app.get('*', getError);
 app.post('/patients',addNewPatient);
 
-app.listen(PORT, () => console.log('Listening on PORT', PORT));
 
 // Helper functions
 function getError(request, response) {
@@ -55,6 +56,38 @@ function getIndex(request, response){
   response.render('index');
 }
 
+let i = 0;
+
+// Funtion that runs when the questions and answers page is requested
+function getQuestions(request, response) {
+  console.log('Hello');
+  client.query(`SELECT * FROM knee;`)
+    .then(
+      result => response.render('pages/questions', {knee: result.rows[i]}))
+    .catch (err => getError(err, response));
+}
+
+// Function that runs when the diagnosis page is requested
+function getDiagnosis(request, response) {
+  response.render('pages/diagnosis');
+}
+
+function getError(request, response) {
+  response.render('pages/error');
+}
+
+/*
+// Get new question and possible answers to go to the question.ejs page
+function newQuestion() {
+  response.render)
+}
+
+// Take the answer chosen and get the next question
+function getQuestion() {
+
+}
+*/
 
 
+app.listen(PORT, () => console.log('Listening on PORT', PORT));
 

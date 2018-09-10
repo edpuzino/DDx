@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><%- include('../partials/head') %></head>
+  <body>
+    <header><%- include('../partials/header') %></header>
+    <main>
+      <title>Questions</title>
+      <div id='questions'>
+        <p class='question'><%= knee.question %></p>
+        <form onsubmit="formSubmit()">
+          <ul id='answers'>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer1 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer2 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer3 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer4 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer5 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer6 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer7 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer8 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer9 %></a></li>
+            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer10 %></a></li>
+          </ul>
+        </form>
+      </div>
+    </main>     
+    <footer><%- include('../partials/footer') %></footer>  
+  </body>
+</html>
