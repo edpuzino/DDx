@@ -4,18 +4,16 @@
   <title>home screen</title>
   <header><%- include('./partials/header') %></header> 
   <body>
-<div id=newpatient>
-    <form onsubmit="formSubmit()">
+  <div id=newPatient>
+    <form id="addNew" action="/patients" method="post">
       <p>New Patient Data</p>
-      <input id="name" type="text" name="Patient Name" placeholder="enter patient name" value="">
-      <input id="name" type="text" name="Patient Name" placeholder="enter patient name" value="">
-      <input id="name" type="text" name="Patient Name" placeholder="enter patient name" value="">
-      <input id="name" type="text" name="Patient Name" placeholder="enter patient name" value="">
-      <input id="name" type="text" name="Patient Name" placeholder="enter patient name" value="">
-      <input id="name" type="text" name="Patient Name" placeholder="enter patient name" value="">
+      <input id="name" type="text" name="patientName" placeholder="enter patient name" value="">
+      <input id="age" type="text" name="patientAge" placeholder="enter patient age" value="">
+      <input id="gender" type="text" name="patientGender" placeholder="enter patient gender" value="">
+      <input id="DOB" type="text" name="DOB" placeholder="enter patient date of birth" value="">
       <button id="submit">submit</button>
     </form>
-</div>
-<footer><%- include('./partials/footer') %></footer>
+  </div>
+  <footer><%- include('./partials/footer') %></footer>
   </body>
 </html>
