@@ -41,13 +41,13 @@ function addNewPatient(request, response) {
   let values = [name, age, gender, DOB];
   return client.query(SQL, values)
     .then(() => {
-      SQL = 'SELECT * FROM patients WHERE name=$1, age=$2, gender=$3, DOB=$4;';
+      SQL = 'SELECT * FROM patients WHERE name=$1, age=$2;';
       values = [request.body.name];
       return client.query(SQL, values)
-        .then(result => response.render('index', { patients: result.rows[0], message: 'sql' }));
- 
+        .then(result => response.render('index', { patients: result.rows[0], message: 'sql' })); 
+
     })
-    .catch((error)=> console.error(error));
+    .catch((error) => console.error(error));
 }
 
 
