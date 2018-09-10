@@ -34,7 +34,14 @@ function getIndex(request, response){
 }
 
 function getDiagnosis(request, response) {
-  response.render('pages/diagnosis', {token : process.env.API_KEY});
+  let SQL =`SELECT id, name, image_url, description, keyword
+  FROM diagnosis
+  WHERE id = $1;`
+  let values = [1];
+  client.query(SQL, values)
+    .then(result => {
+      response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis: result.rows[0]});
+    });
 }
 
 function getError(request, response) {

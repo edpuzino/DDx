@@ -5,8 +5,10 @@
 }
 
 .diagnosis-title {
-    font-size: 2em;
+    font-family: 'Anton', sans-serif;
+    font-size: 2.2em;
     margin-bottom: 1em;
+    letter-spacing: .03em;
 }
 
 .diagnosis-description {
