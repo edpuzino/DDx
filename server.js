@@ -3,20 +3,20 @@
 require('dotenv').config();
 
 // Application dependencies
-import express, { urlencoded, static } from 'express';
-import { Client } from 'pg';
-import superagent from 'superagent';
+const express = require('express');
+const pg = require('pg');
+const superagent = require('superagent');
 
 // Application setup
 const app = express();
-const client = new Client(process.env.DATABASE_URL);
+const client = new pg.Client(process.env.DATABASE_URL);
 const PORT = process.env.PORT;
 client.connect();
 client.on('error', err => console.error(err));
 
 // Serve static files
-app.use(urlencoded({ extended: true }));
-app.use(static('./public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('./public'));
 
 // Set the view engine
 app.set('view engine', 'ejs');
