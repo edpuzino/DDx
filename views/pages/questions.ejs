@@ -7,18 +7,18 @@
       <title>Questions</title>
       <div id='questions'>
         <p class='question'><%= knee.question %></p>
-        <form onsubmit="formSubmit()">
+        <form  action="/questions" method="get">
           <ul id='answers'>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer1 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer2 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer3 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer4 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer5 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer6 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer7 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer8 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer9 %></a></li>
-            <li><a class='answer' id='button' href ='./diagnosis'><%= knee.answer10 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key1%>'><%= knee.answer1 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key2%>'><%= knee.answer2 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key3%>'><%= knee.answer3 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key4%>'><%= knee.answer4 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key5%>'><%= knee.answer5 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key6%>'><%= knee.answer6 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key7%>'><%= knee.answer7 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key8%>'><%= knee.answer8 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key9%>'><%= knee.answer9 %></a></li>
+            <li><a class='answer' id='button' href ='/questions/<%= knee.key10%>'><%= knee.answer10 %></a></li>
           </ul>
         </form>
       </div>
