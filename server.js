@@ -3,20 +3,20 @@
 require('dotenv').config();
 
 // Application dependencies
-const express = require('express');
-const pg = require('pg');
-const superagent = require('superagent');
+import express, { urlencoded, static } from 'express';
+import { Client } from 'pg';
+import superagent from 'superagent';
 
 // Application setup
 const app = express();
-const client = new pg.Client(process.env.DATABASE_URL);
+const client = new Client(process.env.DATABASE_URL);
 const PORT = process.env.PORT;
 client.connect();
 client.on('error', err => console.error(err));
 
 // Serve static files
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('./public'));
+app.use(urlencoded({ extended: true }));
+app.use(static('./public'));
 
 // Set the view engine
 app.set('view engine', 'ejs');
@@ -71,7 +71,7 @@ function getQuestions(request, response) {
 function getDiagnosis(request, response) {
   let SQL =`SELECT id, name, image_url, description, keyword, treatment
   FROM diagnosis
-  WHERE id = $1;`
+  WHERE id = $1;`;
   let values = [1];
   client.query(SQL, values)
     .then(result => {
