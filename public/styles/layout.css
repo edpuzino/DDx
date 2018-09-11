@@ -1,6 +1,6 @@
 header {
-    padding-top: 2em;
-    padding-bottom: 5em;
+    padding-top: 2.5em;
+    padding-bottom: 5.5em;
     padding-left: 2em;
     padding-right: 2em;
     background-color: #5b92e5;
@@ -26,6 +26,7 @@ nav ul {
     display: none;
     list-style: none;
     clear: both;
+    margin-top: -1.9em;
 }
   
 nav li {

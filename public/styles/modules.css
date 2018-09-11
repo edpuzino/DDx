@@ -32,8 +32,15 @@
     font-family: 'Anton', sans-serif;
     letter-spacing: .1em;
     font-size: 12em;
-    color: #ffcc00;
+    color: #5b92e5;
+    margin-top: .7em;
 }
+
+#error-details {
+    font-size: 1.4em;
+    margin-top: 1em;
+    margin-bottom: 6.3em;
+  }
 
 #error-body {
     height: 100%;

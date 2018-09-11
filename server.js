@@ -31,7 +31,15 @@ app.post('/patients',addNewPatient);
 
 // Helper functions
 
+function getIndex(request, response){
+  response.render('index');
+}
 
+function getError(request, response) {
+  response.render('pages/error');
+}
+
+// Function that runs when a new patient is added to the database
 function addNewPatient(request, response) {
   let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
   let SQL = `INSERT INTO patients
@@ -40,17 +48,10 @@ function addNewPatient(request, response) {
   let values = [patientName, patientAge, patientGender, DOB, painLocation];
   return client.query(SQL, values)
     .then(result => {
-      response.render('pages/questions/1', {newPatient: result.rows[0]});
+      response.render('pages/questions', {newPatient: result.rows[0]});
     })
     .catch((error) => console.error(error));
 }
-
-
-function getIndex(request, response){
-  response.render('index');
-}
-
-
 
 // Funtion that runs when the questions and answers page is requested
 function getQuestions(request, response) {
@@ -82,10 +83,6 @@ function getDiagnosis(request, response) {
     });
 }
 
-function getError(request, response) {
-  response.render('pages/error');
-}
-
 /*
 // Get new question and possible answers to go to the question.ejs page
 function newQuestion() {
@@ -97,7 +94,6 @@ function getQuestion() {
 
 }
 */
-
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
 

@@ -23,7 +23,8 @@
     vertical-align: middle;
   }
 
-  h3 {
+  #error-details {
     font-size: 1.4em;
     margin-top: 1em;
+    margin-bottom: 5em;
   }
