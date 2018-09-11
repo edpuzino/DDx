@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
-  <title>home screen</title>
-  <header><%- include('./partials/header') %></header> 
+  <%- include('./partials/head') %>
   <body>
-  <div id=newPatient>
-    <form id="addNew" action="/patients" method="post">
-      <p>New Patient Data</p>
-      <input id="name" type="text" name="patientName" placeholder="enter patient name" value="">
-      <input id="age" type="text" name="patientAge" placeholder="enter patient age" value="">
-      <input id="gender" type="text" name="patientGender" placeholder="enter patient gender" value="">
-      <input id="DOB" type="text" name="DOB" placeholder="enter patient date of birth" value="">
-      <button id="submit">submit</button>
-    </form>
-  </div>
-  <footer><%- include('./partials/footer') %></footer>
+  <%- include('./partials/header') %>
+  <main>
+      <section class="newPatient">
+        <h1 class="main-header">New Patient Data</h1>
+        <form id="addNew" action="/patients" method="post">
+          <input type="text" class="field-entry" id="patient-name" name="patientName" placeholder="Patient's Name" required>
+          <input type="text" class="field-entry" id="patient-age" name="patientAge" placeholder="Patient's Age" required>
+          <input type="text" class="field-entry" id="gender" name="patientGender" placeholder="Patient's Gender" required>
+          <input type="date" class="field-entry" id="DOB" name="DOB" placeholder="Patient's DOB" required>
+          <p class="form-question">Where is your pain?</p>
+          <select name="cars" class="field-entry">
+              <option value="knee">Knee</option>
+              <option value="elbow">Elbow</option>
+              <option value="ankle">Ankle</option>
+            </select>
+          <button type="submit" id="submit" class="button">Submit</button>
+          <input type="reset" class="button">
+        </form>
+      </section>
+  </main>
+  <%- include('./partials/footer') %>
   </body>
 </html>
