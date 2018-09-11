@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS knee (
   id SERIAL PRIMARY KEY,
   questionKey VARCHAR(10),
   question VARCHAR(255),
+	image_url VARCHAR(255),
   answer1 VARCHAR(255),
   key1 VARCHAR(10),
   answer2 VARCHAR(255),
@@ -31,7 +32,7 @@ INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2, answer3, 
 
 INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2, answer3, key3, answer4, key4, answer5, key5) VALUES('1', 'You''ve indicated an issue with the patients knee. What was the mechanism of injury?', 'Sports', '2', 'Fall from height', '0', 'Auto accident', '0', 'Impact Injury', '0', 'Unknown', '0');
 
-INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2, answer3, key3, answer4, key4, answer5, key5, answer6, key6, answer7, key7, answer8, key8) VALUES('2', 'You''ve indicated that the mechanism of injury was sports related. How did they injure it during sports?', 'Body Contact', '0', 'Equipment Contact', '0', 'Plant Foot and Twist', '0', 'Explosive/Dynamic Movement Involving Knee Extension (eg: Jump)', '0', 'Explosive/Dynamic Movement Involving Knee Flexion (eg: Squat)', '0', 'Lateral Movement', '0', 'Fall', '0', 'Unknown', '0');
+INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2, answer3, key3, answer4, key4, answer5, key5, answer6, key6, answer7, key7, answer8, key8) VALUES('2', 'You''ve indicated that the mechanism of injury was sports related. How did they injure it during sports?', 'Body Contact', '0', 'Equipment Contact', '0', 'Plant Foot and Twist', '3', 'Explosive/Dynamic Movement Involving Knee Extension (eg: Jump)', '0', 'Explosive/Dynamic Movement Involving Knee Flexion (eg: Squat)', '0', 'Lateral Movement', '0', 'Fall', '0', 'Unknown', '0');
 
 INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2) VALUES('3', 'Plant foot and twist injuries often involve injury to the ligament or meniscus of the knee. Let''s investigate further with that in mind. Can the patient walk unassisted?', 'Yes', '0', 'No', '4');
 
@@ -96,18 +97,20 @@ INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2, answer3, 
 CREATE TABLE IF NOT EXISTS diagnosis (
   id SERIAL PRIMARY KEY,
   diagnosisKey VARCHAR(10),
-  diagnosis VARCHAR
+  name VARCHAR(255),
+	description VARCHAR,
+	treatment VARCHAR,
+	keyword varchar(255),
+	image_url VARCHAR(255)
 );
 
 
 //Example
-INSERT INTO diagnosis (diagnosisKey, diagnosis) VALUES('diagnosisKey', 'diagnosis');
+INSERT INTO diagnosis (diagnosisKey, name, description, treatment, keyword, image_url) VALUES('diagnosisKey', 'name', 'description', 'treatment', 'keyword', 'image_url');
 
 
 
-INSERT INTO diagnosis (diagnosisKey, diagnosis) VALUES('D1', 'A positive Lachman''s test has a fairly high indication of an ACL tear. As our MOI was a plant and twist injury, the patient is unable to walk unassisted, knee flexion is less than normal, a sound was heard (though inconclusive), and we got a positive Lachman''s test, most signs point to an ACL tear. 
-
-	Final confirmation should be done via imaging. Please send the patient to get this done asap. Make sure the patient knows to schedule a follow up with you in about a week to go over their imaging results. Until that time, have them follow RICE procedures (Rest Ice Compression Elevation)');
+INSERT INTO diagnosis (diagnosisKey, name, description, treatment, keyword, image_url) VALUES('D1', 'ACL tear','A positive Lachman''s test has a fairly high indication of an ACL tear. As our MOI was a plant and twist injury, the patient is unable to walk unassisted, knee flexion is less than normal, a sound was heard (though inconclusive), and we got a positive Lachman''s test, most signs point to an ACL tear.', 'Final confirmation should be done via imaging. Please send the patient to get this done asap. Make sure the patient knows to schedule a follow up with you in about a week to go over their imaging results. Until that time, have them follow RICE procedures (Rest Ice Compression Elevation)', ' ', ' ');
 
 
 

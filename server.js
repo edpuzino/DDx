@@ -23,16 +23,14 @@ app.set('view engine', 'ejs');
 
 // Gets and posts
 app.get('/', getIndex);
-app.get('/questions', getQuestions);
-app.get('/diagnosis', getDiagnosis);
+app.get('/questions/:key', getQuestions);
+app.get('/diagnosis/:key', getDiagnosis);
 app.get('*', getError);
 app.post('/patients',addNewPatient);
 
 
 // Helper functions
-function getError(request, response) {
-  response.render('pages/error');
-}
+
 
 function addNewPatient(request, response) {
   let { name, age, gender, DOB } = request.body;
@@ -45,7 +43,7 @@ function addNewPatient(request, response) {
       SQL = 'SELECT * FROM patients WHERE name=$1, age=$2;';
       values = [request.body.name];
       return client.query(SQL, values)
-        .then(result => response.render('index', { patients: result.rows[0], message: 'sql' })); 
+        .then(result => response.render('index', { patients: result.rows[0], message: 'sql' }));
 
     })
     .catch((error) => console.error(error));
@@ -56,22 +54,29 @@ function getIndex(request, response){
   response.render('index');
 }
 
-let i = 0;
+
 
 // Funtion that runs when the questions and answers page is requested
 function getQuestions(request, response) {
-  console.log('Hello');
-  client.query(`SELECT * FROM knee;`)
-    .then(
-      result => response.render('pages/questions', {knee: result.rows[i]}))
-    .catch (err => getError(err, response));
+  let key= request.params.key;
+  console.log(key);
+  if(key === 0) {
+    response.render('pages/questions');
+  } else if(key.includes('D')) {
+    response.render('pages/diagnosis');
+  } else {
+    client.query(`SELECT * FROM knee WHERE questionKey = $1;`, [key])
+      .then(result => {
+        console.log('Here',result);
+        response.render('pages/questions', {knee: result.rows[0]});
+      }).catch (err => getError(err, response));
+  }
 }
+
 
 // Function that runs when the diagnosis page is requested
 function getDiagnosis(request, response) {
-  let SQL =`SELECT id, name, image_url, description, keyword, treatment
-  FROM diagnosis
-  WHERE id = $1;`
+  let SQL =`SELECT id, name, image_url, description, keyword, treatment FROM diagnosis WHERE id = $1;`;
   let values = [1];
   client.query(SQL, values)
     .then(result => {
@@ -97,4 +102,5 @@ function getQuestion() {
 
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
+
 
