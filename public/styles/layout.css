@@ -19,11 +19,11 @@ header h1 {
     font-size: 3em;
     float: right;
     margin-bottom: .4em;
+    color: #ffffff;
 }
 
 nav ul {
     display: none;
-    padding: 0;
     list-style: none;
     clear: both;
 }
@@ -33,7 +33,7 @@ nav li {
     font-size: 1em;
     text-transform: uppercase;
     letter-spacing: .1em;
-    padding: 1em .9em;
+    padding: .9em .5em;
     border-bottom: .5px solid #ffffff;
 }
 
@@ -47,7 +47,7 @@ nav:hover ul {
 }
 
 .main-navigation ul li a:hover {
-    color: #C0C0C0;
+    color: #ffcc00;
 }
 
 footer {

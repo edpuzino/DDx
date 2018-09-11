@@ -69,7 +69,14 @@ function getQuestions(request, response) {
 
 // Function that runs when the diagnosis page is requested
 function getDiagnosis(request, response) {
-  response.render('pages/diagnosis');
+  let SQL =`SELECT id, name, image_url, description, keyword, treatment
+  FROM diagnosis
+  WHERE id = $1;`
+  let values = [1];
+  client.query(SQL, values)
+    .then(result => {
+      response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis: result.rows[0]});
+    });
 }
 
 function getError(request, response) {

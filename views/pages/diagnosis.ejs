@@ -4,10 +4,12 @@
   <body>
     <header><%- include('../partials/header') %></header>
     <main>
-    <h1 class="diagnosis-title">Diagnosis</h1>
-    <iframe id="embedded-human" frameBorder="0" width="100%" height="450px" allowFullScreen="true" src="https://human.biodigital.com/widget/?be=2dqG&ui-info=true&ui-zoom=true&ui-share=false&dk=a12bea4f3740380ca22d4e08ee0d27a8f5b22f48"></iframe>
-    <p class="diagnosis-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <div id="map"></div>
+      <h1 class="diagnosis-title"><%= diagnosis.name %></h1>
+      <iframe id="embedded-human" frameBorder="0" width="100%" height="450px" allowFullScreen="true" src="<%= diagnosis.image_url %>"></iframe>
+      <p class="diagnosis-description"><%= diagnosis.description %></p>
+      <h4 class="recommended-treatment">Recommended Treatment</h4>
+      <h6 class="treatment-details"><%= diagnosis.treatment %></h6>
+      <div id="map"></div>
     </main>
     
     <script>
@@ -21,7 +23,7 @@
       infoWindow = new google.maps.InfoWindow();
 
 
-      // Try HTML5 geolocation.
+      // HTML5 geolocation.
       if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
@@ -39,7 +41,7 @@
         var request = {
           location: currentLocation,
           radius: '500',
-          query: 'physical therapy',
+          query: '<%= diagnosis.keyword %>',
         };
 
         service = new google.maps.places.PlacesService(map);
@@ -85,7 +87,6 @@
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= token %>&callback=initMap&libraries=places" async defer></script>
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= token %>&libraries=places"></script> -->
     <%- include('../partials/footer') %> 
   </body>
 </html>

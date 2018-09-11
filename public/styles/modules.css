@@ -5,8 +5,10 @@
 }
 
 .diagnosis-title {
-    font-size: 2em;
+    font-family: 'Anton', sans-serif;
+    font-size: 2.6em;
     margin-bottom: 1em;
+    letter-spacing: .03em;
 }
 
 .diagnosis-description {
@@ -20,7 +22,7 @@
 
 #map {
     height: 600px;
-    width: 600px;
+    width: 80%;
     margin-top: 3em;
     margin-left: auto;
     margin-right: auto;
@@ -41,4 +43,32 @@
     font-size: 1.1em;
     font-weight: 700;
     margin-bottom: 1.1em;
+}
+
+.recommended-treatment {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8em;
+    margin-top: 2em;
+    margin-bottom: .6em;
+    letter-spacing: .03em;
+}
+
+.treatment-details {
+    font-size: 1.2em;
+}
+
+@media only screen and (min-width: 640px) {
+    .icon-menu {
+      display: none;
+    }
+  
+    nav ul {
+      display: block;
+      float: right;
+    }
+  
+    nav ul li {
+      display: inline;
+      border-bottom: none;
+    }
 }
