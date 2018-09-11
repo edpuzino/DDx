@@ -4,7 +4,7 @@
     color: #fafafa;
 }
 
-.diagnosis-title {
+.main-header {
     font-family: 'Anton', sans-serif;
     font-size: 2.6em;
     margin-bottom: 1em;
@@ -55,6 +55,41 @@
 
 .treatment-details {
     font-size: 1.2em;
+}
+
+.field-entry {
+    border-style: inset;
+    font-size: 1em;
+    padding: 0.7em;
+    border-radius: .2em;
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.3em;
+ }
+
+ .button {
+    background-color: #484848;
+    font-size: 1.1em;
+    border: none;
+    color: #ffffff;
+    padding: 20px 50px 20px 50px;
+    margin-top: 2em;
+}
+
+.button a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.button:hover {
+    background-color: #5b92e5; 
+}
+
+.form-question {
+    font-size: 1.2em;
+    margin-bottom: .6em;
 }
 
 @media only screen and (min-width: 640px) {
