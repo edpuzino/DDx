@@ -22,9 +22,11 @@
     "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-validator": "^5.3.0",
     "nodemon": "^1.18.4",
     "npm": "^6.4.1",
     "pg": "^7.4.3",
+    "sql": "^0.78.0",
     "superagent": "^3.8.3"
   }
 }
