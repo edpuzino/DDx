@@ -35,18 +35,14 @@ function getError(request, response) {
 }
 
 function addNewPatient(request, response) {
-  let { name, age, gender, DOB } = request.body;
+  let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
   let SQL = `INSERT INTO patients
-  (name, age, gender, DOB)
-  VALUES ($1, $2, $3, $4);`;
-  let values = [name, age, gender, DOB];
+  (patientName, patientAge, patientGender, DOB, painLocation)
+  VALUES ($1, $2, $3, $4, $5);`;
+  let values = [patientName, patientAge, patientGender, DOB, painLocation];
   return client.query(SQL, values)
-    .then(() => {
-      SQL = 'SELECT * FROM patients WHERE name=$1, age=$2;';
-      values = [request.body.name];
-      return client.query(SQL, values)
-        .then(result => response.render('index', { patients: result.rows[0], message: 'sql' })); 
-
+    .then(result => {
+      response.render('pages/questions/1', {newPatient: result.rows[0]});
     })
     .catch((error) => console.error(error));
 }
