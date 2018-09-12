@@ -44,6 +44,8 @@ INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2, answer3, 
 
 INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2, answer3, key3) VALUES('7', 'A negative McMurry''s test means our injury is unlikely to be meniscal in origin (though we can not rule it out entierly). Let''s perform Lachman''s test to see if there is involvement of the anterior cruciate ligament (ACL).', 'Test was positive', 'D1', 'Test was negative', '0', 'Unable to perform', '0');
 
+INSERT INTO knee (questionKey, question, answer1, key1) VALUES('0', 'This branch of the diagnosis tree is not built yet please be patient.', 'Please press this tab to return to the first question.', '1');
+
 //Questions and Answers
 1. You've indicated an issue with the patients knee. What was the mechanism of injury?
 	Sports
@@ -94,23 +96,24 @@ INSERT INTO knee (questionKey, question, answer1, key1, answer2, key2, answer3, 
 
 
 
-CREATE TABLE IF NOT EXISTS diagnosis (
-  id SERIAL PRIMARY KEY,
-  diagnosisKey VARCHAR(10),
-  name VARCHAR(255),
-	description VARCHAR,
-	treatment VARCHAR,
-	keyword varchar(255),
-	image_url VARCHAR(255)
-);
 
+    CREATE TABLE IF NOT EXISTS
+    diagnosis (
+      id SERIAL PRIMARY KEY,
+      diagnosisKey VARCHAR(10),
+      name VARCHAR(255),
+      image_url VARCHAR(255),
+      description VARCHAR,
+      keyword VARCHAR(255),
+      treatment VARCHAR
+    );
 
 //Example
 INSERT INTO diagnosis (diagnosisKey, name, description, treatment, keyword, image_url) VALUES('diagnosisKey', 'name', 'description', 'treatment', 'keyword', 'image_url');
 
 
 
-INSERT INTO diagnosis (diagnosisKey, name, description, treatment, keyword, image_url) VALUES('D1', 'ACL tear','A positive Lachman''s test has a fairly high indication of an ACL tear. As our MOI was a plant and twist injury, the patient is unable to walk unassisted, knee flexion is less than normal, a sound was heard (though inconclusive), and we got a positive Lachman''s test, most signs point to an ACL tear.', 'Final confirmation should be done via imaging. Please send the patient to get this done asap. Make sure the patient knows to schedule a follow up with you in about a week to go over their imaging results. Until that time, have them follow RICE procedures (Rest Ice Compression Elevation)', ' ', ' ');
+INSERT INTO diagnosis (diagnosisKey, name, description, treatment, keyword, image_url) VALUES('D1', 'ACL tear','A positive Lachman''s test has a fairly high indication of an ACL tear. As our MOI was a plant and twist injury, the patient is unable to walk unassisted, knee flexion is less than normal, a sound was heard (though inconclusive), and we got a positive Lachman''s test, most signs point to an ACL tear.', 'Final confirmation should be done via imaging. Please send the patient to get this done asap. Make sure the patient knows to schedule a follow up with you in about a week to go over their imaging results. Until that time, have them follow RICE procedures (Rest Ice Compression Elevation)', 'Nearby Medical Imaging Clinics', 'https://human.biodigital.com/widget/?be=2dqG&ui-info=true&ui-zoom=true&ui-share=false&dk=a12bea4f3740380ca22d4e08ee0d27a8f5b22f48');
 
 
 

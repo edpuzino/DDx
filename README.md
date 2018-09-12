@@ -56,6 +56,12 @@ Dr. Glass DPM: Ankle Sprain Injury Explained https://www.youtube.com/watch?v=_u5
 
 Matthew Hawkes: Lateral Ankle Sprain Treatment & Rehabilitaton Exercises Video https://www.youtube.com/watch?v=OD-p1mwqsH4
 
+Lateral Epicondylitis: https://www.physio-pedia.com/Lateral_Epicondylitis
+
+Mill's Test: https://www.physio-pedia.com/Mill%E2%80%99s_Test
+
+Ankle Sprain: https://www.physio-pedia.com/Ankle_Sprain
+
 ## Clearly defined API endpoints with sample responses
 
 

@@ -14,11 +14,12 @@ CREATE TABLE IF NOT EXISTS
     CREATE TABLE IF NOT EXISTS
     diagnosis (
       id SERIAL PRIMARY KEY,
+      diagnosisKey VARCHAR(10),
       name VARCHAR(255),
       image_url VARCHAR(255),
-      description TEXT,
+      description VARCHAR,
       keyword VARCHAR(255),
-      treatment VARCHAR(255)
+      treatment VARCHAR
     );
 
     INSERT INTO diagnosis
