@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 // Gets and posts
 app.get('/', getIndex);
 app.get('/questions/:key', getQuestions);
-//app.get('/diagnosis/:key', getDiagnosis);
+app.get('/diagnosis/:key', getDiagnosis);
 app.get('*', getError);
 app.post('/patients',addNewPatient);
 
@@ -38,20 +38,6 @@ function getIndex(request, response){
 function getError(request, response) {
   response.render('pages/error');
 }
-
-// Function that runs when a new patient is added to the database
-// function addNewPatient(request, response) {
-//   let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
-//   let SQL = `INSERT INTO patients
-//   (patientName, patientAge, patientGender, DOB, painLocation)
-//   VALUES ($1, $2, $3, $4, $5);`;
-//   let values = [patientName, patientAge, patientGender, DOB, painLocation];
-//   return client.query(SQL, values)
-//     .then(result => {
-//       response.render('pages/questions', {newPatient: result.rows[0]});
-//     })
-//     .catch((error) => console.error(error));
-// }
 
 function addNewPatient(request, response) {
   let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
@@ -79,7 +65,7 @@ function getQuestions(request, response) {
   if(key.includes('D')) {
     client.query(`SELECT * FROM diagnosis WHERE diagnosisKey = $1;`, [key])
       .then(result => {
-        response.render('pages/diagnosis', {diagnosis : result.rows[0]});
+        response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis : result.rows[0]});
       }).catch (err => getError(err, response));  
   } else {
     client.query(`SELECT * FROM knee WHERE questionKey = $1;`, [key])
@@ -89,15 +75,15 @@ function getQuestions(request, response) {
   }
 }
 
-/*
 // Function that runs when the diagnosis page is requested
 function getDiagnosis(request, response) {
   let key = request.params.key;
   client.query(`SELECT * FROM diagnosis WHERE diagnosisKey = $1;`, [key])
     .then(result => {
-      response.render('pages/diagnosis', {diagnosis: result.rows[0]});
+      response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis: result.rows[0]});
     }).catch (err => getError(err, response));
 }
+/*
 
 let SQL =`SELECT id, name, image_url, description, keyword, treatment
   FROM diagnosis
