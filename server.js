@@ -40,19 +40,34 @@ function getError(request, response) {
 }
 
 // Function that runs when a new patient is added to the database
+// function addNewPatient(request, response) {
+//   let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
+//   let SQL = `INSERT INTO patients
+//   (patientName, patientAge, patientGender, DOB, painLocation)
+//   VALUES ($1, $2, $3, $4, $5);`;
+//   let values = [patientName, patientAge, patientGender, DOB, painLocation];
+//   return client.query(SQL, values)
+//     .then(result => {
+//       response.render('pages/questions', {newPatient: result.rows[0]});
+//     })
+//     .catch((error) => console.error(error));
+// }
+
 function addNewPatient(request, response) {
   let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
   let SQL = `INSERT INTO patients
   (patientName, patientAge, patientGender, DOB, painLocation)
   VALUES ($1, $2, $3, $4, $5);`;
   let values = [patientName, patientAge, patientGender, DOB, painLocation];
-  return client.query(SQL, values).then(() => {
-    SQL = `SELECT * FROM knee WHERE questionKey = $1;`;
-    values = [1];
-    return client.query(SQL, values)
-      .then(result => response.render('pages/questions', {knee : result.rows[0]}))
-      .catch(getError);
-  })    
+  return client.query(SQL, values)
+    .then(() => {
+      SQL = `SELECT * FROM knee WHERE questionKey = $1;`;
+      values = [1];
+      return client.query(SQL, values)
+        .then(result => response.render('pages/questions', {knee : result.rows[0]}))
+        .catch(getError);
+    })
+    .catch(getError);
 }
 
 
