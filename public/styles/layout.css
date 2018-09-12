@@ -57,3 +57,38 @@ footer {
     margin-top: 4em;
     background-color: #fafafa;
 }
+/* about us page styling subject to move */
+section.bios {
+width: 1200px;
+margin-left: auto;
+margin-right: auto;  
+margin-top: 50px;
+}
+
+div.group {
+  margin: 10px auto 20px auto;
+  float: left;
+}
+
+.people {
+  width: 320px;
+  text-align: left;
+  padding-right: 80px;
+  margin: 50px 0px 0px 0px;
+  color: #fafafa;
+}
+
+h3.names {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  height: 30px;
+  font-size: 28px;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+p.biosText {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 26px;
+}
