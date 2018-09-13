@@ -125,8 +125,13 @@
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1em;
+    margin-bottom: 2.5em;
     line-height: 1.3em;
+}
+
+#questions {
+    padding-top: 4em;
+    padding-bottom: 2.5em;
 }
 
 .cell {
