@@ -51,12 +51,10 @@ function addNewPatient(request, response) {
   let values = [patientName, patientAge, patientGender, DOB, painLocation];
   return client.query(SQL, values)
     .then(() => {
-      console.log('posted patient\n');
       SQL = `SELECT * FROM knee WHERE questionKey = $1;`;
       values = [1];
       return client.query(SQL, values)
         .then(result => {
-          console.log(result.rows[0]);
           response.render('pages/questions', {knee : result.rows[0]})
         })
         .catch(getError);
