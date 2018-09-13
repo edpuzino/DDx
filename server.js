@@ -25,7 +25,8 @@ app.set('view engine', 'ejs');
 app.get('/', getIndex);
 app.get('/questions/:key', getQuestions);
 app.get('/diagnosis/:key', getDiagnosis);
-app.get('/about-us', getAboutUs)
+app.get('/about-us', getAboutUs);
+app.get('/return-patients', getReturnPatients);
 app.get('*', getError);
 app.post('/patients',addNewPatient);
 
@@ -39,9 +40,15 @@ function getAboutUs(request, response) {
   response.render('aboutUs');
 }
 
+function getReturnPatients(request, response){
+  response.render('return');
+}
+
 function getError(request, response) {
   response.render('pages/error');
 }
+
+
 
 function addNewPatient(request, response) {
   let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
