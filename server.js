@@ -25,14 +25,18 @@ app.set('view engine', 'ejs');
 app.get('/', getIndex);
 app.get('/questions/:key', getQuestions);
 app.get('/diagnosis/:key', getDiagnosis);
+app.get('/about-us', getAboutUs)
 app.get('*', getError);
 app.post('/patients',addNewPatient);
 
 
 // Helper functions
-
 function getIndex(request, response){
   response.render('index');
+}
+
+function getAboutUs(request, response) {
+  response.render('aboutUs');
 }
 
 function getError(request, response) {
@@ -60,8 +64,6 @@ function addNewPatient(request, response) {
     .catch(getError);
 }
 
-
-
 // Funtion that runs when the questions and answers page is requested or after each answer
 function getQuestions(request, response) {
   let key= request.params.key;
@@ -87,18 +89,6 @@ function getDiagnosis(request, response) {
       response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis: result.rows[0]});
     }).catch (err => getError(err, response));
 }
-/*
-
-let SQL =`SELECT id, name, image_url, description, keyword, treatment
-  FROM diagnosis
-  WHERE id = $1;`;
-  let values = [1];
-  client.query(SQL, values)
-    .then(result => {
-      response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis: result.rows[0]});
-    });
-
-*/
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
 
