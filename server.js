@@ -48,6 +48,8 @@ function getError(request, response) {
   response.render('pages/error');
 }
 
+
+
 function addNewPatient(request, response) {
   let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
   let SQL = `INSERT INTO patients
@@ -104,8 +106,10 @@ function getQuestions(request, response) {
 function getDiagnosis(request, response) {
   let key = request.params.key;
   client.query(`SELECT * FROM diagnosis WHERE diagnosisKey = $1;`, [key])
+    // let ourDiagnosis = ;
     .then(result => {
       response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis: result.rows[0]});
+      console.log(result.rows[0]);
     }).catch (err => getError(err, response));
 }
 

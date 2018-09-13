@@ -60,11 +60,20 @@ footer {
 }
 
 /* about us page styling subject to move */
-section.bios {
-width: 1200px;
-margin-left: auto;
-margin-right: auto;  
-margin-top: 50px;
+
+.aboutUs{
+    background-color: antiquewhite;
+}
+
+.bios{
+    display: block;
+    align-content: center;
+    padding-bottom: 27pt;
+    font-family: 'Roboto', sans-serif;
+}
+
+.names{
+ padding-top: 5pt;
 }
 
 div.group {
@@ -72,25 +81,10 @@ div.group {
   float: left;
 }
 
-.people {
-  width: 320px;
-  text-align: left;
-  padding-right: 80px;
-  margin: 50px 0px 0px 0px;
-  color: #fafafa;
-}
-
-h3.names {
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  height: 30px;
-  font-size: 28px;
-  padding: 3px;
-  margin-bottom: 10px;
-}
 
 p.biosText {
   font-family: 'Barlow Semi Condensed', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
   line-height: 26px;
 }
