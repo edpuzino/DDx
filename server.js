@@ -5,7 +5,7 @@ require('dotenv').config();
 // Application dependencies
 const express = require('express');
 const pg = require('pg');
-const superagent = require('superagent');
+
 
 // Application setup
 const app = express();
@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 
 // Gets and posts
 app.get('/', getIndex);
-app.get('/questions/:key', getQuestions);
+app.get('/questions/:painLocation/:key', getQuestions);
 app.get('/diagnosis/:key', getDiagnosis);
 app.get('/about-us', getAboutUs);
 app.get('/return-patients', getReturnPatients);
@@ -56,13 +56,18 @@ function addNewPatient(request, response) {
   (patientName, patientAge, patientGender, DOB, painLocation)
   VALUES ($1, $2, $3, $4, $5);`;
   let values = [patientName, patientAge, patientGender, DOB, painLocation];
+  let pain = painLocation;
   return client.query(SQL, values)
-    .then(() => {
-      SQL = `SELECT * FROM knee WHERE questionKey = $1;`;
+    .then((patients) => {
+      console.log(patients);
+      SQL = `SELECT * FROM ${pain} AS current WHERE questionKey = $1;`;
       values = [1];
       return client.query(SQL, values)
         .then(result => {
-          response.render('pages/questions', {knee : result.rows[0]})
+          let current = result.rows[0];
+          current.painLocation = painLocation;
+          console.log({current});
+          response.render('pages/questions', {current : current});
         })
         .catch(getError);
     })
@@ -71,7 +76,7 @@ function addNewPatient(request, response) {
 
 // function addDiagnosis(request, response) {
 //   let key = request.params.key;
-//   let SQL = `UPDATE patients 
+//   let SQL = `UPDATE patients
 //   SET diagnosis = ,
 //   WHERE condition`
 // }
@@ -79,16 +84,20 @@ function addNewPatient(request, response) {
 // Funtion that runs when the questions and answers page is requested or after each answer
 function getQuestions(request, response) {
   let key= request.params.key;
-  console.log(key);
+  let pain= request.params.painLocation;
+  console.log(key, pain);
   if(key.includes('D')) {
     client.query(`SELECT * FROM diagnosis WHERE diagnosisKey = $1;`, [key])
       .then(result => {
         response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis : result.rows[0]});
-      }).catch (err => getError(err, response));  
+      }).catch (err => getError(err, response));
   } else {
-    client.query(`SELECT * FROM knee WHERE questionKey = $1;`, [key])
+    client.query(`SELECT * FROM ${pain} WHERE questionKey = $1;`, [key])
       .then(result => {
-        response.render('pages/questions', {knee: result.rows[0]});
+        let current = result.rows[0];
+        current.painLocation = pain;
+        console.log({current});
+        response.render('pages/questions', {current : current});
       }).catch (err => getError(err, response));
   }
 }

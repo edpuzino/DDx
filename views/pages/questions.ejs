@@ -6,23 +6,23 @@
     <main>
       <title>Questions</title>
       <div id="questions">
-        <p class="question"><%= knee.question %></p>
+        <p class="question"><%= current.question %></p>
         <form  action="/questions" method="get">
           <ul id="answers">
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key1%>'><%= knee.answer1 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key2%>'><%= knee.answer2 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key3%>'><%= knee.answer3 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key4%>'><%= knee.answer4 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key5%>'><%= knee.answer5 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key6%>'><%= knee.answer6 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key7%>'><%= knee.answer7 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key8%>'><%= knee.answer8 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key9%>'><%= knee.answer9 %></a></li>
-            <li class='cell'><a id='button' href ='/questions/<%= knee.key10%>'><%= knee.answer10 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key1%>'><%= current.answer1 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key2%>'><%= current.answer2 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key3%>'><%= current.answer3 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key4%>'><%= current.answer4 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key5%>'><%= current.answer5 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key6%>'><%= current.answer6 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key7%>'><%= current.answer7 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key8%>'><%= current.answer8 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key9%>'><%= current.answer9 %></a></li>
+            <li class='cell'><a id='button' href ='/questions/<%= current.painLocation%>/<%= current.key10%>'><%= current.answer10 %></a></li>
           </ul>
         </form>
       </div>
     </main>     
-    <%- include('../partials/footer') %> 
+    <%- include('../partials/footer') %>  
   </body>
 </html>
