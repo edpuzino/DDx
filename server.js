@@ -58,18 +58,23 @@ function addNewPatient(request, response) {
   let values = [patientName, patientAge, patientGender, DOB, painLocation];
   return client.query(SQL, values)
     .then(() => {
-      console.log('posted patient\n');
       SQL = `SELECT * FROM knee WHERE questionKey = $1;`;
       values = [1];
       return client.query(SQL, values)
         .then(result => {
-          console.log(result.rows[0]);
           response.render('pages/questions', {knee : result.rows[0]})
         })
         .catch(getError);
     })
     .catch(getError);
 }
+
+// function addDiagnosis(request, response) {
+//   let key = request.params.key;
+//   let SQL = `UPDATE patients 
+//   SET diagnosis = ,
+//   WHERE condition`
+// }
 
 // Funtion that runs when the questions and answers page is requested or after each answer
 function getQuestions(request, response) {
@@ -92,8 +97,10 @@ function getQuestions(request, response) {
 function getDiagnosis(request, response) {
   let key = request.params.key;
   client.query(`SELECT * FROM diagnosis WHERE diagnosisKey = $1;`, [key])
+    // let ourDiagnosis = ;
     .then(result => {
       response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis: result.rows[0]});
+      console.log(result.rows[0]);
     }).catch (err => getError(err, response));
 }
 
