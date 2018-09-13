@@ -66,7 +66,8 @@ margin-top: 50px;
 }
 
 div.group {
-  margin: 10px auto 20px auto;
+  margin-left: auto;
+  margin-right:auto;
   float: left;
 }
 
@@ -74,7 +75,8 @@ div.group {
   width: 320px;
   text-align: left;
   padding-right: 80px;
-  margin: 50px 0px 0px 0px;
+  margin-left:auto;
+  margin-right: auto;
   color: #fafafa;
 }
 
