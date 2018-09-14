@@ -118,7 +118,38 @@
     float: none;
     display: block;
     text-align: left;
-    }
+}
+
+.question {
+    font-size: 1.7em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5em;
+    line-height: 1.3em;
+}
+
+#questions {
+    padding-top: 4em;
+    padding-bottom: 2.5em;
+}
+
+.cell {
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cell a {
+    text-decoration: none;
+}
+
+.cell a:hover {
+    cursor: cell;
+    color: #5b92e5;
+}
 
 @media only screen and (min-width: 640px) {
     .icon-menu {
