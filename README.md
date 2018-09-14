@@ -1,5 +1,5 @@
-# DDx
-Differential Diagnosis Application
+# Pocket DDx
+Pocket Differential Diagnosis Application
 
 **Author**: Ashley Breunich, Ed Puzino, Hollie Thomas, Matt McQuain
 
