@@ -7,7 +7,12 @@
 
 <body>
  <div id='returnPatientData'>
-<p>hello world</p>
+<form id="return" action="/patients" method="get">
+  <input type="text" class="field-entry" id="patient-name" name="patientName" placeholder="Patient's Name" required>
+  <input type="text" class="field-entry" id="DOB" name="DOB" placeholder="Date of Birth" required>
+    <button type="submit" id="submit" class="button">Submit</button>
+    <input type="reset" class="button">
+    </form>
  </div> 
 </body>
 </html>
