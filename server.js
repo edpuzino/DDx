@@ -24,12 +24,10 @@ app.set('view engine', 'ejs');
 // Gets and posts
 app.get('/', getIndex);
 app.get('/questions/:painLocation/:key', getQuestions);
-app.get('/diagnosis/:key', getDiagnosis);
 app.get('/about-us', getAboutUs);
 app.get('/return-patients', getReturnPatients);
 app.get('*', getError);
 app.post('/patients',addNewPatient);
-
 
 // Helper functions
 function getIndex(request, response){
@@ -48,14 +46,12 @@ function getError(request, response) {
   response.render('pages/error');
 }
 
-
-
 function addNewPatient(request, response) {
   let { patientName, patientAge, patientGender, DOB, painLocation } = request.body;
   let SQL = `INSERT INTO patients
-  (patientName, patientAge, patientGender, DOB, painLocation)
-  VALUES ($1, $2, $3, $4, $5);`;
-  let values = [patientName, patientAge, patientGender, DOB, painLocation];
+  (patientName, patientAge, patientGender, DOB, painLocation, diagnosis)
+  VALUES ($1, $2, $3, $4, $5, $6);`;
+  let values = [patientName, patientAge, patientGender, DOB, painLocation, 'Not Determined Yet'];
   let pain = painLocation;
   return client.query(SQL, values)
     .then((patients) => {
@@ -74,13 +70,6 @@ function addNewPatient(request, response) {
     .catch(getError);
 }
 
-// function addDiagnosis(request, response) {
-//   let key = request.params.key;
-//   let SQL = `UPDATE patients
-//   SET diagnosis = ,
-//   WHERE condition`
-// }
-
 // Funtion that runs when the questions and answers page is requested or after each answer
 function getQuestions(request, response) {
   let key= request.params.key;
@@ -90,6 +79,9 @@ function getQuestions(request, response) {
     client.query(`SELECT * FROM diagnosis WHERE diagnosisKey = $1;`, [key])
       .then(result => {
         response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis : result.rows[0]});
+        console.log(result);
+        let ourDiagnosis = result.rows[0].name;
+        client.query(`UPDATE patients SET diagnosis = $1 WHERE id = (SELECT MAX(id) FROM patients)`, [ourDiagnosis]);
       }).catch (err => getError(err, response));
   } else {
     client.query(`SELECT * FROM ${pain} WHERE questionKey = $1;`, [key])
@@ -100,17 +92,6 @@ function getQuestions(request, response) {
         response.render('pages/questions', {current : current});
       }).catch (err => getError(err, response));
   }
-}
-
-// Function that runs when the diagnosis page is requested
-function getDiagnosis(request, response) {
-  let key = request.params.key;
-  client.query(`SELECT * FROM diagnosis WHERE diagnosisKey = $1;`, [key])
-    // let ourDiagnosis = ;
-    .then(result => {
-      response.render('pages/diagnosis', {token : process.env.API_KEY, diagnosis: result.rows[0]});
-      console.log(result.rows[0]);
-    }).catch (err => getError(err, response));
 }
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
