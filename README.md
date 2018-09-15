@@ -5,15 +5,19 @@ Pocket Differential Diagnosis Application
 
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
+
 ## Overview
 The purpose of this application is to aide medical students in the task of differential diagnosis, or the process of elimination in determining a medical diagnosis through sequential and purposeful questioning. 
+
 
 ## Getting Started
 In order to use this application a user must have access to a secure database to store patient information. The user must be able to use an internet connection and web browser. 
 
+
 ## Architecture
 This application was written in V.S Code version 1.27.0. This application was written in Javascript and the following modules were installed: Express(JS), PostgresSQl. 
 The following libraries are accessed in the use of this application: Googlemaps via Google (a free web based API allowing access to google imagery and maps) Biodigital Human (a virtual three dimensional image library of human anatomy).
+
 
 ## Change Log
 09-06-2018 1200 - application now pushed to Github for inital sharing. 
@@ -62,32 +66,67 @@ Mill's Test: https://www.physio-pedia.com/Mill%E2%80%99s_Test
 
 Ankle Sprain: https://www.physio-pedia.com/Ankle_Sprain
 
+
 ## Clearly defined API endpoints with sample responses
 
-
+API ENDPOINT: https://maps.googleapis.com/maps/api/js?key=<%= token %>&callback=initMap&libraries=places
 
 
 ## Clearly defined database schemas
 *Patient Schema*
-    patients
+
+CREATE TABLE IF NOT EXISTS
+    patients(
       id SERIAL PRIMARY KEY,
-      name VARCHAR(255),
-      gender VARCHAR(255),
-      birthdate VARCHAR(255),
+      patientName VARCHAR(255),
+      patientAge VARCHAR(255),
+      patientGender VARCHAR(255),
+      DOB VARCHAR(255),
+      painLocation VARCHAR(255),
       diagnosis VARCHAR(255),
       answers TEXT
-
-  *Diagnosis Schema*
-    CREATE TABLE IF NOT EXISTS
-    diagnosis (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(255),
-      image_url VARCHAR(255),
-      description TEXT,
-      keyword VARCHAR(255),
-      treatment VARCHAR(255)
     );
 
+*Diagnosis Schema*
 
+CREATE TABLE IF NOT EXISTS
+    diagnosis (
+      id SERIAL PRIMARY KEY,
+      diagnosisKey VARCHAR(10),
+      name VARCHAR(255),
+      image_url VARCHAR(255),
+      description VARCHAR,
+      keyword VARCHAR(255),
+      treatment VARCHAR
+    );
+
+*Body Part Schema (ie: knee)*
+
+CREATE TABLE IF NOT EXISTS knee (
+  id SERIAL PRIMARY KEY,
+  questionKey VARCHAR(10),
+  question VARCHAR(255),
+	image_url VARCHAR(255),
+  answer1 VARCHAR(255),
+  key1 VARCHAR(10),
+  answer2 VARCHAR(255),
+  key2 VARCHAR(10),
+  answer3 VARCHAR(255),
+  key3 VARCHAR(10),
+  answer4 VARCHAR(255),
+  key4 VARCHAR(10),
+  answer5 VARCHAR(255),
+  key5 VARCHAR(10),
+  answer6 VARCHAR(255),
+  key6 VARCHAR(10),
+  answer7 VARCHAR(255),
+  key7 VARCHAR(10),
+  answer8 VARCHAR(255),
+  key8 VARCHAR(10),
+  answer9 VARCHAR(255),
+  key9 VARCHAR(10),
+  answer10 VARCHAR(255),
+  key10 VARCHAR(10)
+);
 
 
