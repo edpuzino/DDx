@@ -61,15 +61,14 @@ footer {
 
 /* about us page styling subject to move */
 
-#aboutus{
-    background-color: aliceblue;
-}
+
 
 .bios{
     display: block;
     align-content: center;
     padding-bottom: 27pt;
     font-family: 'Roboto', sans-serif;
+
 }
 
 .names{
@@ -78,15 +77,18 @@ footer {
 
 div.group {
   margin: 10px auto 20px auto;
-  float: left;
 }
 
 
-p.biosText {
+.biosText {
+  margin-left: auto;
+  margin-right:auto;
+  width: 75%;
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-size: 15px;
   font-weight: 300;
   line-height: 26px;
+  padding-bottom: 9pt;
 }
 
 /* footer styling for copyright */
