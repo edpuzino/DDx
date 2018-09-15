@@ -6,7 +6,6 @@ require('dotenv').config();
 const express = require('express');
 const pg = require('pg');
 
-
 // Application setup
 const app = express();
 const client = new pg.Client(process.env.DATABASE_URL);
@@ -93,12 +92,6 @@ function getQuestions(request, response) {
       }).catch (err => getError(err, response));
   }
 }
-
-$(document).ready(function(){
-  $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
-    $(this).toggleClass('open');
-  });
-});
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
 

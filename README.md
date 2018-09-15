@@ -69,7 +69,7 @@ Ankle Sprain: https://www.physio-pedia.com/Ankle_Sprain
 
 ## Clearly defined API endpoints with sample responses
 
-API ENDPOINT: https://maps.googleapis.com/maps/api/js?key=<%= token %>&callback=initMap&libraries=places
+API ENDPOINT: https://maps.googleapis.com/maps/api/js?key=API_TOKEN&callback=initMap&libraries=places
 
 
 ## Clearly defined database schemas
