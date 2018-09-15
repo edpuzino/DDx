@@ -152,6 +152,48 @@
     color: #5b92e5;
 }
 
+#return{
+    border-style: inset;
+    font-size: 1em;
+    padding: 0.7em;
+    border-radius: .2em;
+    display: block;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.3em;
+ }
+
+ .bios{
+    display: block;
+    align-content: center;
+    padding-bottom: 27pt;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.names{
+ padding-top: 1em;
+ padding-bottom: .5em;
+ font-size: 1.5em;
+}
+
+div.group {
+  margin: 10px auto 20px auto;
+}
+
+
+.biosText {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 26px;
+  padding-bottom: 9pt;
+}
+
 @media only screen and (min-width: 640px) {
     .icon-menu {
       display: none;
@@ -166,17 +208,4 @@
       display: inline;
       border-bottom: none;
     }
-}
-
-#return{
-    border-style: inset;
-    font-size: 1em;
-    padding: 0.7em;
-    border-radius: .2em;
-    display: block;
-    width: 55%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.3em;
- }
 }
